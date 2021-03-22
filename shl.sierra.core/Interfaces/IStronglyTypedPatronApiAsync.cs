@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using shl.sierra.core.Enums;
+﻿using shl.sierra.core.Enums;
 using shl.sierra.core.Models;
 using shl.sierra.core.Models.FinesSet;
 using shl.sierra.core.Models.PatronSubset;
+using System.Threading.Tasks;
 
 namespace shl.sierra.core.Interfaces
 {
@@ -67,17 +67,17 @@ namespace shl.sierra.core.Interfaces
         Task<CheckOut> GetCheckout(int id, string fields = null);
 
         Task<CheckOut> Renew(int id, string fields);
-        
 
-            /// <summary>
-            /// Adds a fine to users record
-            /// </summary>
-            /// <param name="recordId"></param>
-            /// <param name="amount"></param>
-            /// <param name="reason"></param>
-            /// <param name="location"></param>
-            /// <returns></returns>
-            Task<bool> Charge (int recordId, int amount, string reason, string location);
+
+        /// <summary>
+        /// Adds a fine to users record
+        /// </summary>
+        /// <param name="recordId"></param>
+        /// <param name="amount"></param>
+        /// <param name="reason"></param>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        Task<bool> Charge(int recordId, int amount, string reason, string location);
 
         Task<Fines> Fines(int recordId);
         Task<Holds> Holds(int recordId);

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RestSharp;
+﻿using RestSharp;
 using shl.sierra.core.Enums;
 using shl.sierra.core.Interfaces;
-using shl.sierra.core.Models.BibSubset;
+using System.Threading.Tasks;
 
 namespace shl.sierra.core.Concretes
 {
@@ -40,7 +34,7 @@ namespace shl.sierra.core.Concretes
         {
             if (fields is null)
             {
-                fields = new[] {"title", "author", "publishYear"};
+                fields = new[] { "title", "author", "publishYear" };
             }
             var request = _sierraRestClient.Execute(Branch.bibs, "/search", Method.GET);
 
@@ -53,7 +47,7 @@ namespace shl.sierra.core.Concretes
             request.AddQueryParameter("limit", limit.ToString());
 
             // execute the request
-            var result =  await _sierraRestClient.Client.ExecuteGetAsync(request);
+            var result = await _sierraRestClient.Client.ExecuteGetAsync(request);
 
             return result.Content;
 
@@ -61,7 +55,7 @@ namespace shl.sierra.core.Concretes
 
 
 
-        public async Task<string> GetById( int id, string[] fields = null)
+        public async Task<string> GetById(int id, string[] fields = null)
         {
             if (fields == null || fields.Length == 0)
             {
@@ -80,9 +74,9 @@ namespace shl.sierra.core.Concretes
 
 
 
-        public async Task<string> Query(string jsonQuery,  int limit = 20, int offset = 0)
+        public async Task<string> Query(string jsonQuery, int limit = 20, int offset = 0)
         {
-   
+
             var request = _sierraRestClient.Execute(Branch.bibs, "/query", Method.POST);
 
             request.AddParameter("json", jsonQuery, ParameterType.RequestBody);
@@ -98,11 +92,11 @@ namespace shl.sierra.core.Concretes
         }
         public async Task<string> GetMarc(int id)
         {
-   
+
             var request = _sierraRestClient.Execute(Branch.bibs, $"/{id}/marc", Method.GET);
 
             request.AddHeader("Accept", "application/marc-xml");
-            
+
             // execute the request
             var result = await _sierraRestClient.Client.ExecuteAsync(request);
 

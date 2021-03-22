@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using shl.sierra.core.Enums;
+﻿using shl.sierra.core.Enums;
 using shl.sierra.core.Models.BibSubset;
+using System.Threading.Tasks;
 
 namespace shl.sierra.core.Interfaces
 {

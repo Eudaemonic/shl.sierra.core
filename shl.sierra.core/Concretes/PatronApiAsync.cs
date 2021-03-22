@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Threading.Tasks;
-using System.Text.Json;
-using RestSharp;
+﻿using RestSharp;
 using shl.sierra.core.Enums;
 using shl.sierra.core.Interfaces;
 using shl.sierra.core.Models;
 using shl.sierra.core.Models.FinesSet;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace shl.sierra.core.Concretes
 {
@@ -198,7 +198,7 @@ namespace shl.sierra.core.Concretes
             return response.Content;
         }
 
-       
+
 
         /// <summary>
         /// 
@@ -263,7 +263,7 @@ namespace shl.sierra.core.Concretes
         {
 
             var request = _sierraRestClient.Execute(Branch.patrons, $"/{recordId}/fines", Method.GET);
-            
+
             var result = await _sierraRestClient.Client.ExecuteAsync(request);
 
             return result.Content;
@@ -274,7 +274,7 @@ namespace shl.sierra.core.Concretes
         public async Task<bool> Payment(int recordId, Payments payments)
         {
 
-  
+
             var request = _sierraRestClient.Execute(Branch.patrons, $"/{recordId}/fines/payment", Method.PUT);
             var body = JsonSerializer.Serialize(payments);
             request.AddParameter("text/json", body, ParameterType.RequestBody);
@@ -289,7 +289,7 @@ namespace shl.sierra.core.Concretes
         {
 
             var request = _sierraRestClient.Execute(Branch.patrons, $"/{recordId}/holds", Method.GET);
-         
+
 
             var result = await _sierraRestClient.Client.ExecuteAsync(request);
 

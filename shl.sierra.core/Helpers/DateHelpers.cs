@@ -5,7 +5,7 @@ namespace shl.sierra.core.Helpers
 {
     public static class DateHelpers
     {
-       public static string FormatSierraDateRange( DateTime startDate, DateTime endDate)
+        public static string FormatSierraDateRange(DateTime startDate, DateTime endDate)
         {
 
             var sb = new StringBuilder();

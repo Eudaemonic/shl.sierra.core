@@ -12,7 +12,7 @@ namespace shl.sierra.core.Interfaces
         /// <param name="query"></param>
         /// <param name="limit"></param>
         /// <returns></returns>
-        string Search(Indexes index,  string query, string[] fields = null, int limit = 20);
+        string Search(Indexes index, string query, string[] fields = null, int limit = 20);
 
         string GetById(int id, string[] fields = null);
     }

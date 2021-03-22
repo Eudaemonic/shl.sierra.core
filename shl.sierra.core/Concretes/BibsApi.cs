@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RestSharp;
+﻿using RestSharp;
 using shl.sierra.core.Enums;
 using shl.sierra.core.Interfaces;
-using shl.sierra.core.Models.BibSubset;
 
 namespace shl.sierra.core.Concretes
 {
@@ -40,7 +33,7 @@ namespace shl.sierra.core.Concretes
         {
             if (fields is null)
             {
-                fields = new[] {"title", "author", "publishYear"};
+                fields = new[] { "title", "author", "publishYear" };
             }
             var request = _sierraRestClient.Execute(Branch.bibs, "/search", Method.GET);
 
@@ -61,7 +54,7 @@ namespace shl.sierra.core.Concretes
 
 
 
-        public string GetById( int id, string[] fields = null)
+        public string GetById(int id, string[] fields = null)
         {
             if (fields == null || fields.Length == 0)
             {

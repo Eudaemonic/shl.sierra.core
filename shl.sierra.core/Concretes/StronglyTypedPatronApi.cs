@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using System.Text.Json;
-using shl.sierra.core.Enums;
+﻿using shl.sierra.core.Enums;
 using shl.sierra.core.Interfaces;
 using shl.sierra.core.Models;
 using shl.sierra.core.Models.PatronSubset;
+using System.Linq;
+using System.Text.Json;
 
 namespace shl.sierra.core.Concretes
 {
@@ -16,7 +16,7 @@ namespace shl.sierra.core.Concretes
         public StronglyTypedPatronApi(ISierraRestClient sierraRestClient)
         {
             _patron = new PatronApi(sierraRestClient);
-          
+
 
         }
 

@@ -1,22 +1,21 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace shl.sierra.core.Models.PatronSubset
 {
     public class ErrorCode
     {
-        [JsonPropertyName( "code")]
+        [JsonPropertyName("code")]
         public string Code { get; set; }
 
-        [JsonPropertyName( "specificCode")]
+        [JsonPropertyName("specificCode")]
         public string SpecificCode { get; set; }
 
-        [JsonPropertyName( "httpStatus")]
+        [JsonPropertyName("httpStatus")]
         public string HttpStatus { get; set; }
 
-        [JsonPropertyName( "name")] public string Name { get; set; }
+        [JsonPropertyName("name")] public string Name { get; set; }
 
-        [JsonPropertyName( "description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
     }
 }

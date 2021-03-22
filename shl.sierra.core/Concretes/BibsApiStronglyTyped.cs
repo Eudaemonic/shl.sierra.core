@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
-using shl.sierra.core.Enums;
+﻿using shl.sierra.core.Enums;
 using shl.sierra.core.Interfaces;
-using shl.sierra.core.Models;
 using shl.sierra.core.Models.BibSubset;
+using System.Text.Json;
 namespace shl.sierra.core.Concretes
 {
     public class BibsApiStronglyTyped : IBibsApiStronglyTyped
@@ -33,20 +29,20 @@ namespace shl.sierra.core.Concretes
 
         }
 
-        public BibSearchModel Search(Indexes index,  string query, string[] fields = null, int limit = 20)
+        public BibSearchModel Search(Indexes index, string query, string[] fields = null, int limit = 20)
         {
 
 
             //var reader = new JsonTextReader(new StringReader("noul"));
 
-   
 
-             return JsonSerializer.Deserialize<BibSearchModel>(_bibsApi.Search(index, query, fields, limit));
+
+            return JsonSerializer.Deserialize<BibSearchModel>(_bibsApi.Search(index, query, fields, limit));
 
             //var response = new BibSearchModel();
             //var entries = new List<Entry>();
             //var currentProp = string.Empty;
-           
+
             //while (reader.Read())
             //{
             //    if (reader.Value != null)

@@ -1,11 +1,10 @@
-﻿using System.Text.Json;
-using RestSharp;
+﻿using RestSharp;
 using shl.sierra.core.Enums;
 using shl.sierra.core.Interfaces;
 using shl.sierra.core.Models;
 using System;
-using System.Linq;
 using System.Net;
+using System.Text.Json;
 
 namespace shl.sierra.core.Concretes
 {
@@ -66,7 +65,7 @@ namespace shl.sierra.core.Concretes
 
             var result = _sierraRestClient.Client.Execute(request);
 
-            return  result.StatusCode == HttpStatusCode.OK ? GetIdFromLink(result.Content) : string.Empty;
+            return result.StatusCode == HttpStatusCode.OK ? GetIdFromLink(result.Content) : string.Empty;
         }
 
         /// <summary>
@@ -77,8 +76,8 @@ namespace shl.sierra.core.Concretes
         /// <returns></returns>
         public string Get(int id, string fields)
         {
-            var request = _sierraRestClient.Execute(Branch.patrons,@"/" + id, Method.GET);
-          
+            var request = _sierraRestClient.Execute(Branch.patrons, @"/" + id, Method.GET);
+
             request.AddQueryParameter("fields", fields);
             // execute the request
             var x = _sierraRestClient.Client.Execute(request);
@@ -86,7 +85,7 @@ namespace shl.sierra.core.Concretes
             return x.Content;
         }
 
-       
+
 
 
 
@@ -103,10 +102,10 @@ namespace shl.sierra.core.Concretes
         {
 
             var request = _sierraRestClient.Execute(Branch.patrons, "/" + id.ToString(), Method.PUT);
-    
+
             request.AddParameter("text/json", patron, ParameterType.RequestBody);
 
-           _sierraRestClient.Client.Execute(request);
+            _sierraRestClient.Client.Execute(request);
         }
 
         /// <summary>
@@ -183,7 +182,7 @@ namespace shl.sierra.core.Concretes
         /// <param name="id"></param>
         /// <param name="fields"></param>
         /// <returns></returns>
-        public string GetCheckouts( int id, string fields)
+        public string GetCheckouts(int id, string fields)
         {
 
             var request = _sierraRestClient.Execute(Branch.patrons, $"/{id}/checkouts", Method.GET);
@@ -202,9 +201,9 @@ namespace shl.sierra.core.Concretes
         #region StringHelpers
 
         string GetIdFromLink(string link)
-       {
-           return link.Contains('/') ? link.Substring(link.LastIndexOf("/", StringComparison.Ordinal) + 1, 7) : string.Empty;
-       }
+        {
+            return link.Contains('/') ? link.Substring(link.LastIndexOf("/", StringComparison.Ordinal) + 1, 7) : string.Empty;
+        }
 
         #endregion
     }

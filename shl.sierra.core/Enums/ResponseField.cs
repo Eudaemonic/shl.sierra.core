@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace shl.sierra.core
+﻿namespace shl.sierra.core
 {
     public enum ResponseField
     {
@@ -25,7 +19,7 @@ namespace shl.sierra.core
         fixedFields,
         varFields
 
-          
+
     }
 
 }

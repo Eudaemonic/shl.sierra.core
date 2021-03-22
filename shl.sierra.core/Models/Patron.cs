@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text.Json;
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 
@@ -11,18 +9,18 @@ namespace shl.sierra.core.Models
     {
 
 
-            [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? id { get; set; }
 
-            [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [DisplayName("Email")]
         public List<string> emails { get; set; }
 
-            [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [DisplayName("Name")]
         public List<string> names { get; set; }
 
-            [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [DisplayName("Patron Type")]
         public int? patronType { get; set; }
 
@@ -104,10 +102,10 @@ namespace shl.sierra.core.Models
 
             var y = new Dictionary<int, List<List<FixedFieldEntry>>>();
 
-         
+
         }
     }
-   
+
 
 
 }

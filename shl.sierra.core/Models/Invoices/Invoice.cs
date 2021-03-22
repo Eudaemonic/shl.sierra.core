@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 
 
@@ -38,8 +37,8 @@ namespace shl.sierra.core.Models.Invoices
 
 
         [JsonPropertyName("taxType")]
-        public string TaxType { get; set; } 
-        
+        public string TaxType { get; set; }
+
         [JsonPropertyName("foreignCurrency")]
         public ForeignCurrency ForeignCurrency { get; set; }
 
@@ -64,18 +63,19 @@ namespace shl.sierra.core.Models.Invoices
         [JsonPropertyName("grandTotal")]
         public double GrandTotal { get; set; }
     }
-    public class ForeignCurrency {
+    public class ForeignCurrency
+    {
         [JsonPropertyName("code")]
         public string Code { get; set; }
-        
+
         [JsonPropertyName("rate")]
         public string Rate { get; set; }
-        
+
         [JsonPropertyName("format")]
         public string Format { get; set; }
     }
 
-public class Vendor
+    public class Vendor
     {
         [JsonPropertyName("vendorCode")]
         public string VendorCode { get; set; }
@@ -87,12 +87,12 @@ public class Vendor
         public long VoucherTotal { get; set; }
     }
 
-public class UseTax
-{
+    public class UseTax
+    {
         [JsonPropertyName("useTaxFund")]
         public string UseTaxFund { get; set; }
-        
-        [JsonPropertyName("percentageRate")] 
+
+        [JsonPropertyName("percentageRate")]
         public decimal PercentageRate { get; set; }
 
         [JsonPropertyName("useTaxType")]

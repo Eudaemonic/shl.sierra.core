@@ -1,5 +1,5 @@
-﻿using System;
-using shl.sierra.core.Interfaces;
+﻿using shl.sierra.core.Interfaces;
+using System;
 
 namespace shl.sierra.core.Models.PatronSubset
 {
@@ -11,7 +11,7 @@ namespace shl.sierra.core.Models.PatronSubset
             get => _id;
             set => _id = !string.IsNullOrEmpty(value) ? value.Remove(0, value.LastIndexOf('/') + 1) : value;
         }
-       
+
 
         public string patron { get; set; }
         public string item { get; set; }

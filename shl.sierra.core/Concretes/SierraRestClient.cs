@@ -57,7 +57,7 @@ namespace shl.sierra.core.Concretes
         /// </summary>
         public RestClient Client
         {
-            get => new RestClient(_baseUrl);
+            get => new(_baseUrl);
             set => throw new NotImplementedException();
         }
 
@@ -107,7 +107,7 @@ namespace shl.sierra.core.Concretes
         {
             if (!resource.StartsWith("/"))
                 resource = "/" + resource;
-       
+
             var request = new RestRequest(branch + resource, method);
 
             request.AddHeader("Authorization", "bearer " + _accessToken);
@@ -117,8 +117,8 @@ namespace shl.sierra.core.Concretes
 
     }
 
- 
-    
+
+
 
 
 

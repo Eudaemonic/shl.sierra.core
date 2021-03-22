@@ -20,7 +20,7 @@ namespace shl.sierra.core.Concretes
 
         public string Get(string[] itemIds = null, string status = "", string[] bibIds = null, string[] fields = null, string[] locations = null, int limit = 50,
             int offset = 0)
-        { 
+        {
             var request = _sierraRestClient.Execute(Branch.items, "/", Method.GET);
 
 
@@ -32,7 +32,7 @@ namespace shl.sierra.core.Concretes
 
             if (!string.IsNullOrWhiteSpace(status)) request.AddQueryParameter("status", status);
 
-            if(bibIds != null) request.AddQueryParameter("bibIds", string.Join(",", bibIds));
+            if (bibIds != null) request.AddQueryParameter("bibIds", string.Join(",", bibIds));
 
             request.AddQueryParameter("limit", limit.ToString());
 

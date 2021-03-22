@@ -18,15 +18,15 @@ namespace shl.sierra.core.Concretes
         public async Task<string> Search(string token, Indexes index, string query, int limit = 5)
         {
             //Config
-            var  fields = new[] { "title", "author", "publishYear" };
+            var fields = new[] { "title", "author", "publishYear" };
             var url = $"{BaseUrl}bibs/search?limit={limit}&fields={string.Join(",", fields)}&text={query}";
 
-                var request = new HttpRequestMessage()
-                { 
-                    RequestUri = new Uri(url),
-                    Method = HttpMethod.Get,
-                };
-           
+            var request = new HttpRequestMessage()
+            {
+                RequestUri = new Uri(url),
+                Method = HttpMethod.Get,
+            };
+
             request.Headers.Add("Authorization", "bearer " + token);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -42,7 +42,7 @@ namespace shl.sierra.core.Concretes
             var stringToEncode = Encoding.UTF8.GetBytes(ClientKey + ":" + ClientSecret);
 
             var headerValue = "Basic " + Convert.ToBase64String(stringToEncode);
-  
+
             var url = $"{BaseUrl}token";
 
             var request = new HttpRequestMessage()

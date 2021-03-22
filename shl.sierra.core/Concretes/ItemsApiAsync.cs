@@ -1,7 +1,6 @@
-﻿    using System;
-using System.Threading.Tasks;
-using RestSharp;
+﻿using RestSharp;
 using shl.sierra.core.Interfaces;
+using System.Threading.Tasks;
 
 namespace shl.sierra.core.Concretes
 {
@@ -20,9 +19,9 @@ namespace shl.sierra.core.Concretes
 
         #region Methods
 
-        public async Task<string> Get(string[] itemIds = null,  string status = "", string[] bibIds = null, string[] fields = null, string[] locations = null, int limit = 50,
+        public async Task<string> Get(string[] itemIds = null, string status = "", string[] bibIds = null, string[] fields = null, string[] locations = null, int limit = 50,
             int offset = 0, string suppressedOnly = "")
-        { 
+        {
             var request = _sierraRestClient.Execute(Branch.items, "/", Method.GET);
 
             if (fields != null) request.AddQueryParameter("fields", string.Join(",", fields));
@@ -34,7 +33,7 @@ namespace shl.sierra.core.Concretes
             if (!string.IsNullOrWhiteSpace(status)) request.AddQueryParameter("status", status);
             if (!string.IsNullOrWhiteSpace(suppressedOnly)) request.AddQueryParameter("suppressed", suppressedOnly);
 
-            if(bibIds != null) request.AddQueryParameter("bibIds", string.Join(",", bibIds));
+            if (bibIds != null) request.AddQueryParameter("bibIds", string.Join(",", bibIds));
 
             request.AddQueryParameter("limit", limit.ToString());
 

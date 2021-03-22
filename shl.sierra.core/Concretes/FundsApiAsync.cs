@@ -22,15 +22,15 @@ namespace shl.sierra.core.Concretes
 
         #region Methods
 
-        public async Task<string> Get(string login,   DateTime? startDate, DateTime?  endDate, InvoiceDateQuery dateToQuery, string[] code = null, string[] ids = null, string[] fields = null, int limit = 50, 
+        public async Task<string> Get(string login, DateTime? startDate, DateTime? endDate, InvoiceDateQuery dateToQuery, string[] code = null, string[] ids = null, string[] fields = null, int limit = 50,
             int offset = 0)
-        { 
+        {
             var request = _sierraRestClient.Execute(Branch.invoices, "/", Method.GET);
 
             if (startDate.HasValue && endDate.HasValue)
             {
                 request.AddQueryParameter(dateToQuery.ToString(), DateHelpers.FormatSierraDateRange(startDate.Value, endDate.Value));
-              
+
             }
             request.AddQueryParameter("login", login.Trim());
 
@@ -38,7 +38,7 @@ namespace shl.sierra.core.Concretes
 
             if (code != null) request.AddQueryParameter("code", string.Join(",", code));
 
-            if(ids != null) request.AddQueryParameter("id", string.Join(",", ids));
+            if (ids != null) request.AddQueryParameter("id", string.Join(",", ids));
 
             request.AddQueryParameter("limit", limit.ToString());
 
@@ -71,9 +71,9 @@ namespace shl.sierra.core.Concretes
 
         #endregion
 
-}
+    }
 
 
 
-  
+
 }

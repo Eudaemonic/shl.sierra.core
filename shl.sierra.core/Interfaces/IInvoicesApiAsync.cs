@@ -1,6 +1,6 @@
-﻿using System;
+﻿using shl.sierra.core.Enums;
+using System;
 using System.Threading.Tasks;
-using shl.sierra.core.Enums;
 
 namespace shl.sierra.core.Interfaces
 {

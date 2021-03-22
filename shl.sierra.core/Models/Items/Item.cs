@@ -33,7 +33,7 @@ namespace shl.sierra.core.Models.Items
         public VarField[] varFields { get; set; }
     }
 
-    public  class VarField
+    public class VarField
     {
         [JsonPropertyName("fieldTag")]
         public string FieldTag { get; set; }
@@ -59,7 +59,7 @@ namespace shl.sierra.core.Models.Items
         public Subfield[] Subfields { get; set; }
     }
 
-    public  class Subfield
+    public class Subfield
     {
         [JsonPropertyName("tag")]
         public string Tag { get; set; }
@@ -71,7 +71,7 @@ namespace shl.sierra.core.Models.Items
     public class ItemResult
     {
         public int total { get; set; }
-        
+
         public List<Item> entries { get; set; }
     }
 }

@@ -1,11 +1,11 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using System.Text.Json;
-using shl.sierra.core.Enums;
+﻿using shl.sierra.core.Enums;
 using shl.sierra.core.Interfaces;
 using shl.sierra.core.Models;
 using shl.sierra.core.Models.FinesSet;
 using shl.sierra.core.Models.PatronSubset;
+using System.Linq;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace shl.sierra.core.Concretes
 {
@@ -17,10 +17,10 @@ namespace shl.sierra.core.Concretes
         public StronglyTypedPatronApiAsync(ISierraRestClient sierraRestClient)
         {
             _patron = new PatronApiAsync(sierraRestClient);
-    
+
         }
 
-        public async Task<BaseEnumerator> Query(string json,  int offset, int limit)
+        public async Task<BaseEnumerator> Query(string json, int offset, int limit)
         {
             return JsonSerializer.Deserialize<BaseEnumerator>(await _patron.Query(json, offset, limit));
         }
@@ -67,7 +67,7 @@ namespace shl.sierra.core.Concretes
         {
             var json = JsonSerializer.Serialize(patron);
 
-           await _patron.Update(json, id);
+            await _patron.Update(json, id);
         }
 
         /// <summary>
@@ -113,10 +113,10 @@ namespace shl.sierra.core.Concretes
         }
 
 
-        public  async Task<CheckOut> Renew(int id, string fields)
+        public async Task<CheckOut> Renew(int id, string fields)
         {
             if (fields == null) fields = GetCheckOutFields();
-            
+
             return JsonSerializer.Deserialize<CheckOut>(await _patron.Renew(id, fields));
         }
 
@@ -133,7 +133,7 @@ namespace shl.sierra.core.Concretes
 
         public async Task<Fines> Fines(int recordId)
         {
-                return JsonSerializer.Deserialize<Fines>(await _patron.Fines(recordId));
+            return JsonSerializer.Deserialize<Fines>(await _patron.Fines(recordId));
         }
 
 

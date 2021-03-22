@@ -15,7 +15,7 @@ namespace shl.sierra.core.Models
 
         public string link
         {
-            get =>  recordNo.ToString();
+            get => recordNo.ToString();
             set => recordNo = value.GetIdAsIntFromLink();
         }
     }

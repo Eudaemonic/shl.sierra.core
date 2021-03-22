@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using shl.sierra.core.Enums;
+﻿using shl.sierra.core.Enums;
+using System.Threading.Tasks;
 
 namespace shl.sierra.core.Interfaces
 {
@@ -13,7 +13,7 @@ namespace shl.sierra.core.Interfaces
         /// <param name="query"></param>
         /// <param name="limit"></param>
         /// <returns></returns>
-        Task <string> Search(Indexes index,  string query, string[] fields = null, int limit = 20);
+        Task<string> Search(Indexes index, string query, string[] fields = null, int limit = 20);
 
         Task<string> GetById(int id, string[] fields = null);
 

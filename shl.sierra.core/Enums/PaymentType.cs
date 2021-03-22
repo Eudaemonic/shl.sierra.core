@@ -2,7 +2,7 @@
 {
     enum PaymentType
     {
-        full = 1, 
+        full = 1,
         waive = 0
     }
 }
