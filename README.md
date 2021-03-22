@@ -1,8 +1,5 @@
 # shl.sierra.core
-net core version of CSharp Rest Client
-
-# SierraCSharpRestClient
-A strongly typed interface for Innovative's Sierra RESTful interface in C# for .Net.
+A strongly typed interface for Innovative's Sierra RESTful interface in C# for .Net Core
 
 
 The Sierra REST API provides access to the Sierra library platform database. It is intended for the use of Innovative customers and their authorized third-party associates, as well as Innovative’s commercial partners.
